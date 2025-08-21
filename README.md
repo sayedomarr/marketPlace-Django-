@@ -156,10 +156,10 @@ marketPlace/
 
 ## Screenshots
 
-![image-20250821165334811](/home/sayed/marketPlace/image-20250821165334811.png)
+![image-20250821165334811](pictures/image-20250821165334811.png)
 
-![image-20250821165341438](/home/sayed/marketPlace/image-20250821165341438.png)
+![image-20250821165341438](pictures/image-20250821165341438.png)
 
-![image-20250821165350287](/home/sayed/marketPlace/image-20250821165350287.png)
+![image-20250821165350287](pictures/image-20250821165350287.png)
 
-![image-20250821165512415](/home/sayed/marketPlace/image-20250821165512415.png)
+![image-20250821165512415](pictures/image-20250821165512415.png)
