@@ -154,33 +154,9 @@ marketPlace/
 
 ---
 
-## Push to GitHub
-
-```bash
-# inside /home/sayed/marketPlace
-
-git add .
-git commit -m "Lab: DB setup, Product model, CRUD, admin, design, seeding"
-
-# replace with your repo URL
-git branch -M main
-git remote add origin https://github.com/<your-username>/marketPlace.git
-git push -u origin main
-```
-
-Verification on GitHub:
-- Repository contains code, templates, static, and README with lab mapping
-- Confirm CI or Actions (optional) and repo visibility
-
----
-
 ## Notes for the Instructor
 
 - Database is SQLite by default; MySQL can be enabled via environment variables
 - Auth URLs enabled; login template provided; create/edit/delete require login
 - Media and static are configured for development; production would use proper storages/collectstatic
 - URL naming and namespacing are consistently used throughout templates
-
----
-
-© 2025 — marketPlace (Django)
