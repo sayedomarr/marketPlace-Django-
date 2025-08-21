@@ -52,32 +52,25 @@ This app demonstrates a marketplace with two core entities: Products and Categor
 Create a folder `docs/screenshots/` and add images, then update these links.
 
 - Home (/)
-  
-- ![image-20250821174657297](../.config/Typora/typora-user-images/image-20250821174657297.png)
-  
+
+![image-20250821174657297](pictures/image-20250821174657297.png)
+
 - Products List (/list/)  
-  ![image-20250821174729825](../.config/Typora/typora-user-images/image-20250821174729825.png)
-
+  ![image-20250821174729825](pictures/image-20250821174729825.png)
 - Product Detail (/<<id>>/)  
-  ![image-20250821174822830](../.config/Typora/typora-user-images/image-20250821174822830.png)
-
+  ![image-20250821174822830](pictures/image-20250821174822830.png)
 - Product Create (/create/)  
   ![image-20250821174842085](../.config/Typora/typora-user-images/image-20250821174842085.png)
-
 - Categories List (/categories/)  
   ![image-20250821174856008](../.config/Typora/typora-user-images/image-20250821174856008.png)
-
 - Category Detail (/categories/<<id>>/)  
   ![image-20250821174918834](../.config/Typora/typora-user-images/image-20250821174918834.png)
   - Category Create (/categories/create/)  
     ![image-20250821174938189](../.config/Typora/typora-user-images/image-20250821174938189.png)
-  
 - Login (/accounts/login/)  
   ![image-20250821175001512](../.config/Typora/typora-user-images/image-20250821175001512.png)
-
 - Signup (/accounts/signup/)  
   ![image-20250821175017674](../.config/Typora/typora-user-images/image-20250821175017674.png)
-
 - Admin (/admin/)  
   ![image-20250821175041205](../.config/Typora/typora-user-images/image-20250821175041205.png)
 
