@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} · marketPlace{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>{{ product.name }}</h1>
+  {% if product.image %}
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width:100%;max-height:360px;object-fit:cover;border-radius:8px;">
+  {% endif %}
+  <p>{{ product.description }}</p>
+  <p><strong>Price:</strong> ${{ product.price }}</p>
+  <p>
+    {% if product.in_stock %}
+      <span style="color: #10b981;">In Stock ({{ product.stock_quantity }})</span>
+    {% else %}
+      <span style="color: #ef4444;">Out of Stock</span>
+    {% endif %}
+  </p>
+  <div style="margin-top: 12px;">
+    <a href="{% url 'products:product_update' product.pk %}" class="btn">Edit</a>
+    <a href="{% url 'products:product_delete' product.pk %}" class="btn" onclick="return confirm('Delete this product?');">Delete</a>
+    <a href="{% url 'products:product_list' %}" class="btn">Back to list</a>
+  </div>
+</div>
+{% endblock %}
+
+

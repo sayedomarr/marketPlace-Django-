@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}marketPlace{% endblock %}</title>
+  
+  <!-- Font Awesome CDN link for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-papmQw1vQ5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{% url 'products:product_list' %}"><i class="fa-solid fa-boxes-stacked"></i> Products</a>
+      <a href="{% url 'products:product_create' %}"><i class="fa-solid fa-plus"></i> Add Product</a>
+      <a href="{% url 'aboutus:about_us' %}"><i class="fa-solid fa-circle-info"></i> About Us</a>
+      <a href="{% url 'contactus:contact_us' %}"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+      {% if request.user.is_authenticated %}
+        <span class="greeting">Hi, {{ request.user.username }}</span>
+        <form class="logout-form" method="post" action="{% url 'logout' %}" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit" class="nav-btn"><i class="fa-solid fa-right-from-bracket"></i> Sign out</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Django messages display -->
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="message message-{{ message.tags }}">
+            {% if message.tags == "success" %}
+              <i class="fa-solid fa-circle-check"></i>
+            {% elif message.tags == "error" %}
+              <i class="fa-solid fa-circle-xmark"></i>
+            {% elif message.tags == "info" %}
+              <i class="fa-solid fa-circle-info"></i>
+            {% elif message.tags == "warning" %}
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            {% else %}
+              <i class="fa-solid fa-bell"></i>
+            {% endif %}
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <small>© {{ year|default:2025 }} marketPlace</small>
+  </footer>
+</body>
+</html>

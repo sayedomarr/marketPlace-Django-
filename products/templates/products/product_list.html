@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}All Products · marketPlace{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>All Products</h1>
+  {% if page_obj %}
+    <div class="grid">
+      {% for product in page_obj.object_list %}
+        <div class="card">
+          {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width:100%;max-height:180px;object-fit:cover;border-radius:8px 8px 0 0;">
+          {% endif %}
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description|truncatechars:60 }}</p>
+          <strong>${{ product.price }}</strong><br>
+          <div style="margin-top: 12px;">
+            <a href="{% url 'products:product_detail' product.pk %}" class="btn">View</a>
+            <a href="{% url 'products:product_update' product.pk %}" class="btn">Edit</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <nav aria-label="Page navigation" style="margin-top: 24px;">
+      <ul class="pagination" style="display: flex; gap: 8px; list-style: none; padding: 0;">
+        {% if page_obj.has_previous %}
+          <li><a class="btn" href="?page={{ page_obj.previous_page_number }}">&laquo; Prev</a></li>
+        {% endif %}
+        {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+            <li><span class="btn" style="background: #2563eb;">{{ num }}</span></li>
+          {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <li><a class="btn" href="?page={{ num }}">{{ num }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+          <li><a class="btn" href="?page={{ page_obj.next_page_number }}">Next &raquo;</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% else %}
+    <p>No products found.</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+

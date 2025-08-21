@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ form.instance.pk|yesno:"Edit Product,Create Product" }} · marketPlace{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>{{ form.instance.pk|yesno:"Edit Product,Create Product" }}</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="grid">
+      <div class="card">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+        {% for e in form.name.errors %}<div class="message message-error">{{ e }}</div>{% endfor %}
+      </div>
+      <div class="card">
+        {{ form.price.label_tag }}
+        {{ form.price }}
+        {% for e in form.price.errors %}<div class="message message-error">{{ e }}</div>{% endfor %}
+      </div>
+      <div class="card" style="grid-column: 1 / -1;">
+        {{ form.description.label_tag }}
+        {{ form.description }}
+        {% for e in form.description.errors %}<div class="message message-error">{{ e }}</div>{% endfor %}
+      </div>
+      <div class="card">
+        {{ form.image.label_tag }}
+        {{ form.image }}
+        {% for e in form.image.errors %}<div class="message message-error">{{ e }}</div>{% endfor %}
+      </div>
+      <div class="card">
+        <label style="display:flex;align-items:center;gap:8px;">{{ form.in_stock }} {{ form.in_stock.label }}</label>
+        {% for e in form.in_stock.errors %}<div class="message message-error">{{ e }}</div>{% endfor %}
+      </div>
+      <div class="card">
+        {{ form.stock_quantity.label_tag }}
+        {{ form.stock_quantity }}
+        {% for e in form.stock_quantity.errors %}<div class="message message-error">{{ e }}</div>{% endfor %}
+      </div>
+    </div>
+    <div style="margin-top: 16px; display:flex; gap: 8px;">
+      <button type="submit" class="btn">Save</button>
+      <a href="{% url 'products:product_list' %}" class="btn">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+

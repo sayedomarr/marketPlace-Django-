@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Sign in · marketPlace{% endblock %}
+
+{% block content %}
+<div class="card auth-card">
+  <h1>Sign in</h1>
+  <form method="post">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+      <div class="message message-error">{{ form.non_field_errors }}</div>
+    {% endif %}
+    <div class="form-row">
+      {{ form.username.label_tag }}
+      {{ form.username }}
+      {% for e in form.username.errors %}<div class="message message-error">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="form-row">
+      {{ form.password.label_tag }}
+      {{ form.password }}
+      {% for e in form.password.errors %}<div class="message message-error">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn">Sign in</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+

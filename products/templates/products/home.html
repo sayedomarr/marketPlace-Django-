@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Home · marketPlace{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Featured Products</h1>
+  {% if products %}
+    <div class="grid">
+      {% for product in products %}
+        <div class="card">
+          {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width:100%;max-height:180px;object-fit:cover;border-radius:8px 8px 0 0;">
+          {% endif %}
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description|truncatechars:60 }}</p>
+          <strong>${{ product.price }}</strong><br>
+          <a href="{% url 'products:product_detail' product.pk %}" class="btn" style="margin-top: 8px;">View</a>
+        </div>
+      {% endfor %}
+    </div>
+    <div style="margin-top: 16px;">
+      <a href="{% url 'products:product_list' %}" class="btn">See all products</a>
+    </div>
+  {% else %}
+    <p>No products available yet.</p>
+    <a href="{% url 'products:product_create' %}" class="btn">Add your first product</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+
