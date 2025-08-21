@@ -4,6 +4,7 @@ from django.urls import reverse
 import uuid
 import os
 from .models import Product
+from categories.models import Category
 
 # ProductForm class
 class ProductForm(forms.ModelForm):
@@ -12,9 +13,10 @@ class ProductForm(forms.ModelForm):
         # model
         model = Product
         # fields
-        fields = ['name', 'price', 'description', 'image', 'in_stock', 'stock_quantity']
+        fields = ['category', 'name', 'price', 'description', 'image', 'in_stock', 'stock_quantity']
         # widgets
         widgets = {
+            'category': forms.Select(attrs={'class': 'form-control'}),
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter product name'}),
             'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': '0.00', 'step': '0.01', 'min': '0'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter product description', 'rows': 4}),

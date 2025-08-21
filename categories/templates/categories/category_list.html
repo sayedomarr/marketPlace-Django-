@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Categories · marketPlace{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Categories</h1>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <span class="muted">Browse all categories</span>
+    <a href="{% url 'categories:category_create' %}" class="btn">Add Category</a>
+  </div>
+  {% if categories %}
+    <div class="grid">
+      {% for category in categories %}
+        <div class="card">
+          {% if category.image %}
+          <img src="{{ category.image.url }}" alt="{{ category.name }}" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px 8px 0 0;">
+          {% endif %}
+          <h3>{{ category.name }}</h3>
+          <p class="muted">{{ category.description|truncatechars:80 }}</p>
+          <a class="btn" href="{% url 'categories:category_detail' category.pk %}">View</a>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No categories yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+

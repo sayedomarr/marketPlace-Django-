@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Category · marketPlace{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Delete Category</h1>
+  <p>Are you sure you want to delete <strong>{{ object.name }}</strong>?</p>
+  <form method="post">
+    {% csrf_token %}
+    <div class="actions">
+      <button type="submit" class="btn">Yes, delete</button>
+      <a class="btn" href="{% url 'categories:category_detail' object.pk %}">Cancel</a>
+    </div>
+  </form>
+  
+</div>
+{% endblock %}
+
+

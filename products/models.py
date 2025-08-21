@@ -1,8 +1,10 @@
 from django.db import models
+from categories.models import Category
 import uuid
 
 # Product model
 class Product(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='products')
     
     # charfield to store the name of the product
     name = models.CharField(max_length=200, db_index=True)

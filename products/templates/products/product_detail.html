@@ -10,6 +10,9 @@
   {% endif %}
   <p>{{ product.description }}</p>
   <p><strong>Price:</strong> ${{ product.price }}</p>
+  {% if product.category %}
+    <p class="muted">Category: <a href="{% url 'categories:category_detail' product.category.pk %}">{{ product.category.name }}</a></p>
+  {% endif %}
   <p>
     {% if product.in_stock %}
       <span style="color: #10b981;">In Stock ({{ product.stock_quantity }})</span>

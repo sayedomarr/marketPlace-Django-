@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from products.views import home
+from .views import signup
 
 # TODO: Update URL configuration for MySQL and production readiness:
 
@@ -53,8 +54,10 @@ urlpatterns = [
     path('', home, name='home'),
     # Namespaced products URLs
     path('', include(('products.urls', 'products'), namespace='products')),
+    path('categories/', include(('categories.urls', 'categories'), namespace='categories')),
     # Auth URLs
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', signup, name='signup'),
     path('aboutus/', include(('aboutus.urls', 'aboutus'), namespace='aboutus')),
     path('contactus/', include(('contactus.urls', 'contactus'), namespace='contactus')),
 ]

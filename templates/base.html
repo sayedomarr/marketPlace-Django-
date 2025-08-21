@@ -15,6 +15,7 @@
   <header>
     <nav>
       <a href="{% url 'products:product_list' %}"><i class="fa-solid fa-boxes-stacked"></i> Products</a>
+      <a href="{% url 'categories:category_list' %}"><i class="fa-solid fa-tags"></i> Categories</a>
       <a href="{% url 'products:product_create' %}"><i class="fa-solid fa-plus"></i> Add Product</a>
       <a href="{% url 'aboutus:about_us' %}"><i class="fa-solid fa-circle-info"></i> About Us</a>
       <a href="{% url 'contactus:contact_us' %}"><i class="fa-solid fa-envelope"></i> Contact Us</a>
@@ -26,6 +27,7 @@
         </form>
       {% else %}
         <a href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>
+        <a href="{% url 'signup' %}"><i class="fa-solid fa-user-plus"></i> Sign up</a>
       {% endif %}
     </nav>
   </header>
