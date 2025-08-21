@@ -154,9 +154,12 @@ marketPlace/
 
 ---
 
-## Notes for the Instructor
+## Screenshots
 
-- Database is SQLite by default; MySQL can be enabled via environment variables
-- Auth URLs enabled; login template provided; create/edit/delete require login
-- Media and static are configured for development; production would use proper storages/collectstatic
-- URL naming and namespacing are consistently used throughout templates
+![image-20250821165334811](/home/sayed/marketPlace/image-20250821165334811.png)
+
+![image-20250821165341438](/home/sayed/marketPlace/image-20250821165341438.png)
+
+![image-20250821165350287](/home/sayed/marketPlace/image-20250821165350287.png)
+
+![image-20250821165512415](/home/sayed/marketPlace/image-20250821165512415.png)
